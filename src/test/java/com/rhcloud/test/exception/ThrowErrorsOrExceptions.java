@@ -22,7 +22,7 @@ public class ThrowErrorsOrExceptions {
 	}
 	
 	@Test
-	public void returnInTryDoesFinallyRun() {
+	public void returnInTryFinallyDoesRun() {
 		
 		String input = "input";
 		String value = getValue(input);

@@ -43,7 +43,7 @@ public class EqualsHashCodeTest {
 		A three = new A(3);
 		
 		assertThat(aSet,hasItem(three)); // This returns true!!! Why?
-		assertTrue("three is not found in aSet", aSet.contains(three));
+		assertThat("three is found in aSet", aSet.contains(three), is(false));
 		
 	}
 	
@@ -75,57 +75,6 @@ public class EqualsHashCodeTest {
 		
 		assertTrue("three is not found in aSet", bSet.contains(three));
 		
-	}
-	
-	class A{
-		private final int varA;
-
-		A(int varA){
-			this.varA = varA;
-		}
-		
-		public int getVarA() {
-			return varA;
-		}
-
-		@Override
-		public boolean equals(Object o){
-			if(this == o)
-				return true;
-			else if(null == o || this.getClass() != o.getClass())
-				return false;
-		
-			A a = (A) o;
-			return a.varA == varA;
-		}
-	}
-	
-	class B{
-		private final int varB;
-
-		B(int varA){
-			this.varB = varA;
-		}
-		
-		public int getVarA() {
-			return varB;
-		}
-
-		@Override
-		public boolean equals(Object o){
-			if(this == o)
-				return true;
-			else if(null == o || this.getClass() != o.getClass())
-				return false;
-		
-			B a = (B) o;
-			return a.varB == varB;
-		}
-		
-		@Override
-		public int hashCode() {
-			return Objects.hashCode(this);
-		}
 	}
 	
 }
