@@ -27,7 +27,7 @@ public class EqualsHashCodeTest {
 		
 		A three = new A(3);
 		
-		assertThat(2, is(equalTo(aList.indexOf(three))));
+		assertThat(aList.indexOf(three), is(equalTo(2)));
 		
 	}
 
@@ -43,7 +43,7 @@ public class EqualsHashCodeTest {
 		A three = new A(3);
 		
 		assertThat(aSet,hasItem(three)); // This returns true!!! Why?
-		assertThat("three is found in aSet", aSet.contains(three), is(false));
+		assertThat(aSet.contains(three), is(false));
 		
 	}
 	
@@ -73,7 +73,7 @@ public class EqualsHashCodeTest {
 		
 		B three = new B(3);
 		
-		assertTrue("three is not found in aSet", bSet.contains(three));
+		assertTrue(bSet.contains(three));
 		
 	}
 	
