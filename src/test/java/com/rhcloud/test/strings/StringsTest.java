@@ -12,7 +12,7 @@ public class StringsTest {
 		String direct = "test the String Class";
 		String constructor = new String("test the String Class");
 		
-		assertThat("Strings are not equal using equals", direct.equals(constructor), is(true));
+		assertThat(direct.equals(constructor), is(true));
 		assertThat(direct == constructor, is(false));
 		
 	}
@@ -22,7 +22,7 @@ public class StringsTest {
 		String direct = "test the String Class".intern();
 		String constructor = new String("test the String Class").intern();
 		
-		assertThat("Strings are not equal", direct.equals(constructor), is(true));
+		assertThat(direct.equals(constructor), is(true));
 		assertThat(direct == constructor, is(true));
 	}
 	
