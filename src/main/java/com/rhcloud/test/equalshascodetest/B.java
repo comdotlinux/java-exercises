@@ -21,9 +21,13 @@ class B{
 		B a = (B) o;
 		return a.varB == varB;
 	}
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 23 * hash + this.varB;
+        return hash;
+    }
 	
-	@Override
-	public int hashCode() {
-		return this.varB >> 3;
-	}
+	
 }

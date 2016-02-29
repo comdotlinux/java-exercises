@@ -11,7 +11,9 @@ import net.bytebuddy.ByteBuddy;
 import net.bytebuddy.dynamic.loading.ClassLoadingStrategy;
 import net.bytebuddy.implementation.FixedValue;
 import net.bytebuddy.matcher.ElementMatchers;
+import org.junit.Ignore;
 
+@Ignore
 public class MyPanelTest {
 
 	public static class TanPanel {
