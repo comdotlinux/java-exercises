@@ -2,6 +2,7 @@ package com.rhcloud.test.staticblock;
 
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.isA;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertFalse;
@@ -12,8 +13,8 @@ public class StaticBlockTest {
 
 	@Test
 	public void testStaticBlocksRunOnlyOnceBeforeClassInstantiation() {
-		A a = new A();
-		B b = new B();
+		ClassOne a = new ClassOne();
+		ClassOther b = new ClassOther();
                 
                 assertThat(a, is(notNullValue()));
                 assertThat(b, is(notNullValue()));
@@ -21,23 +22,23 @@ public class StaticBlockTest {
         
         @Test
 	public void testPolymophism_whichMethodGetsCalled() {
-		B b = new B();
-		A a = new B();
-		A aa = new A();
+		ClassOther b = new ClassOther();
+		ClassOne a = new ClassOther();
+		ClassOne aa = new ClassOne();
 		
 		b.sayTheWord("Hummingbird");
 		a.sayTheWord("Hummingbird");
 		aa.sayTheWord("Hummingbird");
                 
                 assertThat(b, is(notNullValue()));
-                assertTrue(b instanceof A);
+                assertThat(b, isA(ClassOne.class));
                 
                 assertThat(a, is(notNullValue()));
-                assertTrue(a instanceof B);
-                assertTrue(a instanceof A);
+                assertThat(b, isA(ClassOther.class));
+                assertThat(b, isA(ClassOne.class));
                 
                 assertThat(aa, is(notNullValue()));
-                assertFalse(aa instanceof B);
+                assertFalse(aa instanceof ClassOther);
 		
 	}
 
