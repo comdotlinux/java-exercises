@@ -27,5 +27,44 @@ public class JavaEightExamples {
         
         System.out.println("threadWithoutLambdas outside runnable: " + Thread.currentThread().getName());
     }
+    
+    @Test
+    public void threadWithLambdas() {
+        Runnable r = () -> {
+            System.out.println("threadWithLambdas()" + Thread.currentThread().getName());  
+        };
+        
+        Thread thread = new Thread(r);
+        thread.setName("Java8 Thread");
+        thread.start();
+        
+        System.out.println("threadWithLambdas outside runnable: " + Thread.currentThread().getName());
+    }
+    
+    @Test
+    public void threadWithLambdasConsise() {
+        Runnable r = () -> System.out.println("threadWithLambdasConsise()" + Thread.currentThread().getName());
+        
+        Thread thread = new Thread(r);
+        thread.setName("Java8 Thread Consise");
+        thread.start();
+        
+        System.out.println("threadWithLambdasConsise outside runnable: " + Thread.currentThread().getName());
+    }
+    
+    @Test
+    public void threadWithMethodreferences() {
+        Runnable r = this::runInSeperateThread;  // implementing runnable#run method by a method with same signature. -- Awesome.
+        
+        Thread thread = new Thread(r);
+        thread.setName("Java8 Thread Method reference");
+        thread.start();
+        
+        System.out.println("Method reference outside runnable: " + Thread.currentThread().getName());
+    }
+    
+    public void runInSeperateThread() {
+        System.out.println("runInSeperateThread()" + Thread.currentThread().getName());
+    }
    
 }
