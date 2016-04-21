@@ -49,5 +49,24 @@ public class JavascriptUsageTest {
         
         assertThat(actual, is("42"));
 }
+     
+     @Test
+     public void testJavascriptFunctions() {
+        Object eval = null;
+        try {
+            Path file = Paths.get("src/test/resources","com/rhcloud/nashorn/calculator.js");
+            engine.eval(new FileReader(file.toFile()));
+            eval = engine.eval("add(10,10);");
+        } catch (ScriptException | FileNotFoundException ex) {
+            throw new IllegalStateException(ex);
+        }
+        
+        Long actual = null;
+        if(eval instanceof Long) {
+            actual = (Long) eval;
+        }
+        
+        assertThat(actual, is(20l));
+}
 
 }
