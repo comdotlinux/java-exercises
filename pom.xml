@@ -4,7 +4,7 @@
 	<groupId>org.home</groupId>
 	<artifactId>test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Archetype - test</name>
+	<name>java-examples</name>
 	<url>http://maven.apache.org</url>
 
 
