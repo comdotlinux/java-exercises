@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+@SuppressWarnings(value = {"StringEquality"})
 public class StringsTest {
 
 	@Test
@@ -18,6 +19,7 @@ public class StringsTest {
 	}
 	
 	@Test
+         
 	public void testStringInterning() {
 		String direct = "test the String Class".intern();
 		String constructor = new String("test the String Class").intern();
