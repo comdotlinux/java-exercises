@@ -19,3 +19,4 @@ hs_err_pid*
 */target/**
 /target/
 /nbproject/
+/nb_jr_remoting.cfg
