@@ -4,11 +4,11 @@ package com.linux.test.primegenerators.simple;
  *
  * @author guru.a.kulkarni
  */
-public class SimplePrimeGenerator {
+public class SimplePrimeChecker {
     
     private final long maxNumber;
     
-    public SimplePrimeGenerator(long maxNumber) {
+    public SimplePrimeChecker(long maxNumber) {
         this.maxNumber = maxNumber;
     }
     

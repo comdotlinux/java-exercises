@@ -62,7 +62,6 @@ public class SerializableInheritanceTest {
     /**
      * Test of getPrimitiveFromSerializableEntity method, of class SerializableEntity.
      */
-    @Ignore
     @Test
     public void testGetPrimitiveFromSerializableEntity() {
         System.out.println("getPrimitiveFromSerializableEntity");
@@ -70,20 +69,17 @@ public class SerializableInheritanceTest {
         int expResult = 0;
         int result = instance.getPrimitiveFromSerializableEntity();
         assertEquals(expResult, result);
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of setPrimitiveFromSerializableEntity method, of class SerializableEntity.
      */
-    @Ignore
     @Test
     public void testSetPrimitiveFromSerializableEntity() {
         System.out.println("setPrimitiveFromSerializableEntity");
         int primitiveFromSerializableEntity = 0;
         SerializableEntity instance = new SerializableEntity();
         instance.setPrimitiveFromSerializableEntity(primitiveFromSerializableEntity);
-        fail("The test case is a prototype.");
     }
 
 }

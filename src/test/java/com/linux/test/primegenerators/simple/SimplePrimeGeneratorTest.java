@@ -18,7 +18,7 @@ public class SimplePrimeGeneratorTest {
     @Test
     public void testPrimes() {
         System.out.println("primes");
-        SimplePrimeGenerator instance = new SimplePrimeGenerator(100L);
+        SimplePrimeChecker instance = new SimplePrimeChecker(100L);
         System.out.println("com.linux.test.primegenerators.simple.SimplePrimeGeneratorTest.testPrimes()" + instance.primes(10));
     }
     
