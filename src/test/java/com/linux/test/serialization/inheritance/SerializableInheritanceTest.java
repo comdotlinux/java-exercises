@@ -44,19 +44,19 @@ public class SerializableInheritanceTest {
         assertThat(oos, is(notNullValue()));
         assertThat(actual, instanceOf(SerializableEntity.class));
         assertThat(((SerializableEntity)actual).getObjectFromNonSerializableClass(),is(equalTo(underTest.getObjectFromSerializableEntity())));
+        assertThat(actual, instanceOf(NonSerializableEntity.class));
+        assertThat(((NonSerializableEntity)actual).getObjectFromNonSerializableClass(), is(nullValue()));
     }
 
     /**
      * Test of setObjectFromSerializableEntity method, of class SerializableEntity.
      */
-    @Ignore
     @Test
     public void testSetObjectFromSerializableEntity() {
         System.out.println("setObjectFromSerializableEntity");
         String objectFromSerializableEntity = "";
         SerializableEntity instance = new SerializableEntity();
         instance.setObjectFromSerializableEntity(objectFromSerializableEntity);
-        fail("The test case is a prototype.");
     }
 
     /**
