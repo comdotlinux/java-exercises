@@ -18,6 +18,9 @@ import static org.hamcrest.CoreMatchers.*;
  */
 public class CompletableFuturesTest {
 
+    private static final int SUPPLIER_WAIT_TIME_IN_MILLIS = 20;
+    private static final int WAIT_TIME_1000_IN_MILLIS = 10;
+    
 //    @Before
 //    public void setUp() {
 //    }
@@ -29,7 +32,7 @@ public class CompletableFuturesTest {
      
     String stringSupplier() {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(SUPPLIER_WAIT_TIME_IN_MILLIS);
         } catch (InterruptedException ex) {
             Logger.getLogger(CompletableFuturesTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -53,7 +56,7 @@ public class CompletableFuturesTest {
         StringBuilder beautifiedOutput = new StringBuilder();
         for (int i = 0; i < 10; i++) {
             try {
-                Thread.sleep(i * 1000);
+                Thread.sleep(i * WAIT_TIME_1000_IN_MILLIS);
             } catch (InterruptedException ex) {
                 Logger.getLogger(CompletableFuturesTest.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -62,7 +65,7 @@ public class CompletableFuturesTest {
         beautifiedOutput.append("|> ").append(input).append(" <|");
         for (int i = 10; i < 20; i++) {
             try {
-                Thread.sleep(i * 1000);
+                Thread.sleep(i * WAIT_TIME_1000_IN_MILLIS);
             } catch (InterruptedException ex) {
                 Logger.getLogger(CompletableFuturesTest.class.getName()).log(Level.SEVERE, null, ex);
             }
