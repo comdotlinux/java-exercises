@@ -1,5 +1,6 @@
 package com.linux.test.primegenerators.simple;
 
+import java.util.Arrays;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
@@ -25,7 +26,8 @@ public class SimplePrimeGeneratorTest {
     @Test
     public void sieveOfEratosthnesTest() {
         SieveOfEratosthenes soe = new SieveOfEratosthenes(100);
-        soe.getPrimes();
+        Integer[] primes = soe.getPrimes();
+        System.out.println("sieveOfEratosthnesTest()" + Arrays.toString(primes));
     }
 
 }

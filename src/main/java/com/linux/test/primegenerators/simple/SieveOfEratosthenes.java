@@ -1,7 +1,9 @@
 package com.linux.test.primegenerators.simple;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
@@ -14,35 +16,44 @@ public class SieveOfEratosthenes {
     private static final Logger LOG = getLogger(SieveOfEratosthenes.class);
     
     private final int maxNumber;
-    private final boolean[] primes;
+    private final boolean[] prime;
 
     public SieveOfEratosthenes(int maxNumber) {
         this.maxNumber = maxNumber;
-        primes = new boolean[maxNumber + 1];
-        for(int i = 0; i < primes.length; i++) {
-            primes[i] = true;
+        prime = new boolean[maxNumber + 1];
+        for(int i = 0; i < prime.length; i++) {
+            prime[i] = true;
         }
     }
     
-    public int[] getPrimes() {
+    public Integer[] getPrimes() {
+        int counter = 0;
         for(int p = 2; p*p <= maxNumber; p++) {
-            LOG.info("p is {}", p);
-            if(primes[p]) {
-                LOG.info("{} is prime", p);
+            if(prime[p]) {
                 for (int i = p*2; i <= maxNumber; i += p) {
-                    primes[i] = false;
-                    LOG.info("i is {} and is prime? {}.", primes[i]);
+                    prime[i] = false;
+                    counter++;
                 }
+            } else {
+                counter++;
             }
+            LOG.info("Current state when p is {} is {}",p ,Arrays.toString(getStateOfArray()));
         }
         
-        LOG.info("Printing all primes");
+        
+        
+        LOG.info("Getting all primes, took {} for loops", counter);
+        return getStateOfArray();
+    }
+
+    private Integer[] getStateOfArray() {
+        List<Integer> primes = new ArrayList<>();
         for(int i = 2; i <= maxNumber; i++) {
-            if(primes[i]) {
-                LOG.info("{},{i}");
+            if(prime[i]) {
+                primes.add(i);
             }
         }
-        return new int[]{0};
+        return primes.toArray(new Integer[0]);
     }
     
 }
