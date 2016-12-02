@@ -25,6 +25,8 @@ public class ManualSort {
                     return -1;
                 } else if("A".equals(t) && "P".equals(t1)) {
                     return -1;
+                } else if("A".equals(t) && "D".equals(t1)) {
+                    return 1;
                 } else if("P".equals(t)) {
                     return 1;
                 } else {
@@ -75,6 +77,25 @@ public class ManualSort {
     @Test
     public void manualSortThirdCheck() {
         List<String> cities = Arrays.asList("P","D","D", "A", "A", "P");
+        Collections.sort(cities, MANUAL_SORTER);
+        
+        
+        assertThat(cities.get(0), is("D"));
+        assertThat(cities.get(1), is("D"));
+        
+        assertThat(cities.get(2), is("A"));
+        assertThat(cities.get(3), is("A"));
+        
+        assertThat(cities.get(4), is("P"));
+        assertThat(cities.get(5), is("P"));
+        
+        System.out.println("com.linux.test.sorting.ManualSort.manualSort()" + cities);
+        
+    }
+    
+    @Test
+    public void manualSortFourthCheck() {
+        List<String> cities = Arrays.asList("A","D","A", "P", "D", "P");
         Collections.sort(cities, MANUAL_SORTER);
         
         
