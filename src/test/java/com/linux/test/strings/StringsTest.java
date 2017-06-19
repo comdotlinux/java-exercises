@@ -1,6 +1,7 @@
 package com.linux.test.strings;
 
 import java.util.Random;
+import org.apache.commons.lang3.StringUtils;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -52,6 +53,26 @@ public class StringsTest {
             String nextInt = String.format("%06d",Math.abs(r.nextInt(999999)));
             System.out.println("com.linux.test.strings.StringsTest.random()" + nextInt);
         }
+    }
+    
+    
+    @Test
+    public void stringSplitTest() {
+//        String timestampInput = "2016-12-31-11.10.09.77777"
+        char a = "1234".charAt(3);
+        int a_int = Integer.parseInt(String.valueOf(a));
+        System.out.println("com.linux.test.strings.StringsTest.stringSplitTest()" + a);
+        System.out.println("com.linux.test.strings.StringsTest.stringSplitTest()" + a + " int is " + a_int);
+        
+        assertThat(4, is(a_int));
+        
+        String actual = StringUtils.overlay("1234", String.valueOf(a_int++), 1, 2);
+        
+        assertThat(actual, is("1434"));
+        
+        actual = StringUtils.overlay("1234", "00", 0, 2);
+        
+        assertThat(actual, is("0034"));
     }
     
     
