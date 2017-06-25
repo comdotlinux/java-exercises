@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import static java.nio.file.Files.readAllLines;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -42,11 +43,22 @@ public class MergeInputs {
         int rightSize = right.size();
         int size =  leftSize > rightSize? leftSize : right.size();
         
-        List<String> merged = IntStream.range(0, size)
-                .mapToObj(i -> ((i % 2 == 0) && i < leftSize) ? left.get(i) : i < rightSize ? right.get(i) : "" )
-                .peek(System.out::println)
-                .collect(Collectors.toList());
-        
+//        List<String> merged = IntStream.range(0, size)
+//                .mapToObj(i -> ((i % 2 == 0) && i < leftSize) ? left.get(i) : i < rightSize ? right.get(i) : "" )
+//                .peek(System.out::println)
+//                .collect(Collectors.toList());
+
+        List<String> merged = new ArrayList<>(size*2);
+        for (int i = 0; i < size; i++) {
+            if(i < leftSize) {
+                merged.add(left.get(i));
+            }
+            
+            if(i < rightSize) {
+                merged.add(right.get(i));
+            }
+        }
+
         System.out.println("com.linux.test.merge.list.MergeInputs.merge() merged : " + merged);
         try {
             Files.write(mergedFile, merged, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
@@ -54,6 +66,7 @@ public class MergeInputs {
             Logger.getLogger(MergeInputs.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 
     private static List<String> readFile(Path input) {
         List<String> lines = Collections.emptyList();
