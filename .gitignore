@@ -20,3 +20,5 @@ hs_err_pid*
 /target/
 /nbproject/
 /nb_jr_remoting.cfg
+.idea/
+.nbproject
