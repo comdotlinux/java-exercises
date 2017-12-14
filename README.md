@@ -6,4 +6,4 @@ It helps the reader get an understanding of how it works and can optionally run 
 
 I hope to keep adding to this some esoteric examples and questions often asked in interviews to test the depth of knowledge of candidates.
 
-However anything that I like and can be tested could go here.
+However anything that I like and can be tested could go here but should be Java related :)
