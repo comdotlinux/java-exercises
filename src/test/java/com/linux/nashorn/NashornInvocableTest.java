@@ -49,5 +49,4 @@ public class NashornInvocableTest {
        engine.eval("function run(){print('Running asynchronusly with javascript');}");
        return invocable.getInterface(Runnable.class);
     }
-
 }
