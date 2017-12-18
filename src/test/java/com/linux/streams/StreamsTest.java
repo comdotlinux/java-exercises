@@ -2,8 +2,11 @@ package com.linux.streams;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
+import static java.util.Comparator.comparing;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 import org.junit.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
@@ -77,6 +80,7 @@ public class StreamsTest {
     }
 
     List<Person> persons;
+    Comparator<Person> byFirstName = comparing(Person::getFirstName);
     
     @Before
     public void setUp() {
@@ -100,14 +104,15 @@ public class StreamsTest {
      */
     @Test
     public void CollectionsTest() {
-        Collections.sort(persons, (Person p1, Person p2) -> {return p1.firstName.compareTo(p2.firstName);});
+        
+        Collections.sort(persons, byFirstName);
         assertThat(persons.get(0).getFirstName(), is("Bob"));
     }
 
     @Test
-    public void streamsTest() {
+    public void streamsTest() {        
         Optional<Person> firstPerson = persons.stream()
-                .sorted((Person p1, Person p2) -> {return p1.firstName.compareTo(p2.firstName);})
+                .sorted(byFirstName)
                 .findFirst();
         
         assertTrue(firstPerson.isPresent());
