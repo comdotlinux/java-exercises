@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
 
 @SuppressWarnings(value = {"StringEquality", "RedundantStringConstructorCall"})
 public class StringsTest {
-	String direct = "test the String Class";
+	private static final String direct = "test the String Class";
 
 	@Test
 	public void testStringConstructor() {
@@ -47,7 +47,7 @@ public class StringsTest {
 
 	@Test
 	public void randomTest() {
-		Random r = new Random(System.nanoTime());
+		Random r = new Random();
 		for (int i = 0; i < 100; i++) {
 			String nextInt = String.format("%06d", Math.abs(r.nextInt(999999)));
 			System.out.printf("com.linux.test.strings.StringsTest.random() : %s%n", nextInt);
