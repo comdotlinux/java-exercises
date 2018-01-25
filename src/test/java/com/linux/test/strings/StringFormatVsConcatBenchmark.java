@@ -20,6 +20,39 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 import java.util.concurrent.TimeUnit;
 
 
+/**
+ * JMH version: 1.20<br>
+ * VM version: JDK 9.0.4, VM 9.0.4+11<br>
+ * VM invoker: /usr/lib/jvm/java-9-oracle/bin/java<br>
+ * VM options: -Dvisualvm.id=556241303924935 -ea -Didea.test.cyclic.buffer.size=1048576 -javaagent:/home/guru/IDEs/idea-IU-173.3727.127/lib/idea_rt.jar=36417:/home/guru/IDEs/idea-IU-173.3727.127/bin -Dfile.encoding=UTF-8<br>
+ * Warmup: 10 iterations, 1000 ns each<br>
+ * Measurement: 50 iterations, 1000 ns each<br>
+ * Timeout: 10 min per iteration<br>
+ * Threads: 5 threads, will synchronize iterations<br>
+ * Benchmark mode: Average time, time/op<br>
+ * Benchmark: com.linux.test.strings.StringFormatVsConcatBenchmark<br>
+ * Parameters: (formatString = %s%s, lhs = lhs, rhs = rhs)<br>
+ *<br>
+ *<br>
+ * Run complete. Total time: 00:01:27<br>
+ *<br>
+ *Benchmark                                                          (formatString)  (lhs)  (rhs)  Mode  Cnt      Score       Error  Units<br>
+ *StringFormatVsConcatBenchmark.stringConcatinationConstantVariable            %s%s    lhs    rhs  avgt  500    388.391 ±   532.895  ns/op<br>
+ *StringFormatVsConcatBenchmark.stringConcatinationInstanceVariable            %s%s    lhs    rhs  avgt  500  35217.389 ± 58563.208  ns/op<br>
+ *StringFormatVsConcatBenchmark.stringFormatConstantVariable                   %s%s    lhs    rhs  avgt  500  60062.523 ± 70754.144  ns/op<br>
+ *StringFormatVsConcatBenchmark.stringFormatInstanceVariable                   %s%s    lhs    rhs  avgt  500  79941.244 ± 65650.460  ns/op<br>
+ *<br>
+ *Process finished with exit code 0<br>
+ *<br>
+ *<br>
+ * Run complete. Total time: 00:01:23<br>
+ *<br>
+ *Benchmark                                                          (formatString)  (lhs)  (rhs)  Mode  Cnt       Score        Error  Units<br>
+ *StringFormatVsConcatBenchmark.stringConcatinationConstantVariable            %s%s    lhs    rhs  avgt  500     328.110 ±    147.617  ns/op<br>
+ *StringFormatVsConcatBenchmark.stringConcatinationInstanceVariable            %s%s    lhs    rhs  avgt  500   25392.440 ±  34154.686  ns/op<br>
+ *StringFormatVsConcatBenchmark.stringFormatConstantVariable                   %s%s    lhs    rhs  avgt  500  111080.760 ± 110650.381  ns/op<br>
+ *StringFormatVsConcatBenchmark.stringFormatInstanceVariable                   %s%s    lhs    rhs  avgt  500  124862.550 ± 131435.440  ns/op<br>
+ */
 @Fork(10) // The entire suite is run this many times
 @OutputTimeUnit(TimeUnit.NANOSECONDS) // the result displayed in this time unit
 @BenchmarkMode(Mode.AverageTime)
