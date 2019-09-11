@@ -1,10 +1,8 @@
 package com.linux.test.forloop;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import org.junit.jupiter.api.Test;
 
 /**
  * These tests show that the post increment OR pre increment operators do not make a difference in for loops when added in the third statement.

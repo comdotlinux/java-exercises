@@ -1,11 +1,9 @@
 package com.linux.test.privatevariablesaccess;
 
-import com.linux.test.privatevariablesaccess.Complex;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ComplexText {
 

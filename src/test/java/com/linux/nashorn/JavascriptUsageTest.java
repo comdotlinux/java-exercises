@@ -9,11 +9,10 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assume.assumeThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  *
@@ -23,12 +22,12 @@ public class JavascriptUsageTest {
 
     private ScriptEngine engine;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         ScriptEngineManager sem = new ScriptEngineManager();
         this.engine = sem.getEngineByName("javascript");
         assertThat(this.engine, is(notNullValue()));
-        assertThat(this.engine.getClass().getName(), containsString("nashorn"));
+        assumeThat("Skipping test since script engine is not nashorn", this.engine.getClass().getName(), containsString("nashorn"));
     }
 
     @Test

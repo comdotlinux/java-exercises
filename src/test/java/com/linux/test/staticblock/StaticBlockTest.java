@@ -1,15 +1,12 @@
 package com.linux.test.staticblock;
 
 
-import com.linux.test.staticblock.ClassOne;
-import com.linux.test.staticblock.ClassOther;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.isA;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class StaticBlockTest {
 

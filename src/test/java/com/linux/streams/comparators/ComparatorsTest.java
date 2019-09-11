@@ -1,25 +1,23 @@
 package com.linux.streams.comparators;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.time.LocalDate;
+import static java.util.Comparator.comparing;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.IntStream;
-
-import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
+import java.util.stream.IntStream;
+import org.junit.jupiter.api.Test;
 
 public class ComparatorsTest {
 
 	private List<User> userList;
-	@Before
+	@org.junit.jupiter.api.BeforeEach
 	public void setUp() {
-		userList = IntStream.range(0, 100).mapToObj(i -> new User(i, Objects.toString(i), Timestamp.from(Instant.from(LocalDate.of(2000 - i, i / 10, i / 20))))).collect(toList());
+		userList = IntStream.range(0, 100).
+                        mapToObj(i -> new User(i, Objects.toString(i), Timestamp.from(Instant.now()))).
+                        collect(toList());
 	}
 
 	@Test

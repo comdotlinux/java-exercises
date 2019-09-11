@@ -1,11 +1,8 @@
 package com.linux.test.enums;
 
-import org.junit.Test;
-
-import java.util.concurrent.TimeUnit;
-
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import org.junit.jupiter.api.Test;
 
 public class MonthEnumTest {
 

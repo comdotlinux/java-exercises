@@ -1,23 +1,17 @@
 package com.linux.test.jsoup;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.function.Consumer;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.core.IsNot.not;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Attributes;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
 /**
  *
@@ -28,7 +22,7 @@ public class JsoupTest {
     private static final String URL = "http://www.xe.com/currencycharts/";
     private static Document document;
 
-    @BeforeClass
+    @org.junit.jupiter.api.BeforeAll
     public static void setUpClass() throws IOException {
         document = Jsoup.connect(URL).get();
     }
@@ -39,7 +33,7 @@ public class JsoupTest {
     }
     private Elements elements;
 
-    @Before
+    @org.junit.jupiter.api.BeforeEach
     public void setUp() {
         assertThat(document.childNodeSize(), is(not(0)));
         elements = document.select("table#crLive.liveCurrencyRates tr td");

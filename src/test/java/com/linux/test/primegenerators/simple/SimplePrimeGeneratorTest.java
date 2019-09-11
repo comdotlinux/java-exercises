@@ -1,11 +1,7 @@
 package com.linux.test.primegenerators.simple;
 
 import java.util.Arrays;
-import org.junit.Test;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.core.IsCollectionContaining.*;
-import static org.hamcrest.MatcherAssert.*;
+import org.junit.jupiter.api.Test;
 
 /**
  *

@@ -6,11 +6,11 @@ import java.util.Comparator;
 import static java.util.Comparator.comparing;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Predicate;
-import org.junit.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  *
@@ -79,11 +79,11 @@ public class StreamsTest {
         
     }
 
-    List<Person> persons;
+    List<Person> persons = Collections.emptyList();
     Comparator<Person> byFirstName = comparing(Person::getFirstName);
     
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
         
         persons = Arrays.asList(
                new Person("John", "Doe", 20, Gender.MALE),
@@ -107,6 +107,7 @@ public class StreamsTest {
         
         Collections.sort(persons, byFirstName);
         assertThat(persons.get(0).getFirstName(), is("Bob"));
+        assertThat(persons.get(persons.size() - 1).getFirstName(), is(not("Kidman")));
     }
 
     @Test

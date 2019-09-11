@@ -1,9 +1,6 @@
 package com.linux.streams.comparators;
 
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.time.Instant;
-
 import static java.sql.Timestamp.from;
 import static java.time.Instant.now;
 

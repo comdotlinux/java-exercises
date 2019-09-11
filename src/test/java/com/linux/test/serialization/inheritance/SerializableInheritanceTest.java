@@ -1,17 +1,14 @@
 package com.linux.test.serialization.inheritance;
 
-import com.linux.test.serialization.inheritance.SerializableEntity;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import org.junit.Before;
-import org.junit.Test;
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Test;
 
 /**
  *
@@ -19,7 +16,7 @@ import org.junit.Ignore;
  */
 public class SerializableInheritanceTest {
 
-    @Before
+    @org.junit.jupiter.api.BeforeEach
     public void setUp() {
     }
 

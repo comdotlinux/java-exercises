@@ -1,11 +1,9 @@
 package com.linux.test.exception;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
-
-import org.junit.Ignore;
-
 import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+import org.junit.Ignore;
+import org.junit.jupiter.api.Test;
 
 
 public class ThrowErrorsOrExceptions {

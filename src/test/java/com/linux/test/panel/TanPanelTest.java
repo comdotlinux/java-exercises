@@ -1,15 +1,11 @@
 package com.linux.test.panel;
 
-import com.linux.test.panel.TanPanel;
-import static org.junit.Assert.*;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 public class TanPanelTest {
 
-	@Test(expected = NullPointerException.class)
-	public void test() {
-		new TanPanel();
-	}
+    public void test() {
+        Assertions.assertThrows(NullPointerException.class, TanPanel::new);
+    }
 
 }

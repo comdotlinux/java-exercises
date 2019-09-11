@@ -1,14 +1,12 @@
 package com.linux.test.enums.sort;
 
-import com.linux.test.enums.sort.Alphabet;
 import static com.linux.test.enums.sort.Alphabet.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import static java.util.Collections.*;
 import java.util.List;
-import org.junit.Test;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
+import org.junit.jupiter.api.Test;
 /**
  *
  * @author guru.a.kulkarni

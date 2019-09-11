@@ -1,19 +1,15 @@
 package com.linux.test.equalshascodetest;
 
-import com.linux.test.equalshascodetest.B;
-import com.linux.test.equalshascodetest.A;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class EqualsHashCodeTest {
 

@@ -1,7 +1,6 @@
 package com.linux.test.merge.list;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import static java.nio.file.Files.readAllLines;
@@ -10,11 +9,8 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  *
@@ -41,7 +37,7 @@ public class MergeInputs {
         
         int leftSize = left.size();
         int rightSize = right.size();
-        int size =  leftSize > rightSize? leftSize : right.size();
+        int size =  leftSize > rightSize? leftSize : rightSize;
         
 //        List<String> merged = IntStream.range(0, size)
 //                .mapToObj(i -> ((i % 2 == 0) && i < leftSize) ? left.get(i) : i < rightSize ? right.get(i) : "" )
