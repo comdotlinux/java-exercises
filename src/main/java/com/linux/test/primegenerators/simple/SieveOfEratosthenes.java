@@ -12,9 +12,9 @@ import static org.slf4j.LoggerFactory.getLogger;
  * @author guru.a.kulkarni
  */
 public class SieveOfEratosthenes {
-    
+
     private static final Logger LOG = getLogger(SieveOfEratosthenes.class);
-    
+
     private final int maxNumber;
     private final boolean[] prime;
 
@@ -25,7 +25,7 @@ public class SieveOfEratosthenes {
             prime[i] = true;
         }
     }
-    
+
     public Integer[] getPrimes() {
         int counter = 0;
         for(int p = 2; p*p <= maxNumber; p++) {
@@ -37,11 +37,11 @@ public class SieveOfEratosthenes {
             } else {
                 counter++;
             }
-            LOG.info("Current state when p is {} is {}",p ,Arrays.toString(getStateOfArray()));
+            LOG.info("Current state when p is {} is {}", p, Arrays.toString(getStateOfArray()));
         }
-        
-        
-        
+
+
+
         LOG.info("Getting all primes, took {} for loops", counter);
         return getStateOfArray();
     }
@@ -55,5 +55,5 @@ public class SieveOfEratosthenes {
         }
         return primes.toArray(new Integer[0]);
     }
-    
+
 }

@@ -8,9 +8,9 @@ import java.util.Date;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assume.assumeThat;
+
+import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assumptions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,8 +26,8 @@ public class JavascriptUsageTest {
     public void setUp() {
         ScriptEngineManager sem = new ScriptEngineManager();
         this.engine = sem.getEngineByName("javascript");
-        assertThat(this.engine, is(notNullValue()));
-        assumeThat("Skipping test since script engine is not nashorn", this.engine.getClass().getName(), containsString("nashorn"));
+        assertThat(this.engine).isNotNull();
+        assumeThat(this.engine.getClass().getName()).contains("nashorn");
     }
 
     @Test
@@ -40,7 +40,7 @@ public class JavascriptUsageTest {
             actual = (String) eval;
         }
 
-        assertThat(actual, is("42"));
+        assertThat(actual).isEqualTo("42");
     }
 
     @Test
@@ -49,12 +49,12 @@ public class JavascriptUsageTest {
         engine.eval(new FileReader(file.toFile()));
         Object eval = engine.eval("add(10,10);");
 
-        Double actual = null;
-        if (eval instanceof Double) {
-            actual = (Double) eval;
+        Integer actual = null;
+        if (eval instanceof Integer) {
+            actual = (Integer) eval;
         }
 
-        assertThat(actual, is(20D));
+        assertThat(actual).isEqualTo(20);
     }
 
     @Test
@@ -63,12 +63,10 @@ public class JavascriptUsageTest {
         engine.eval(new FileReader(file.toFile()));
         Object eval = engine.eval("subtract(50,25);");
 
-        Double actual = null;
-        if (eval instanceof Double) {
-            actual = (Double) eval;
-        }
+        assertThat(eval).isInstanceOf(Integer.class);
 
-        assertThat(actual, is(25D));
+        Integer actual = (Integer) eval;
+        assertThat(actual).isEqualTo(25);
     }
 
     @Test
@@ -80,26 +78,24 @@ public class JavascriptUsageTest {
         engine.put("opr3", 5);
         Object eval = engine.eval("multiply(divide(opr1,opr2), opr3);");
 
-        assertThat(eval, instanceOf(Double.class));
-        Double actual = null;
-        if (eval instanceof Double) {
-            actual = (Double) eval;
-        }
+        assertThat(eval).isInstanceOf(Integer.class);
 
-        assertThat(actual, is(125D));
+        Integer actual = (Integer) eval;
+
+        assertThat(actual).isEqualTo(125);
     }
 
     @Test
     public void usingJavaObjectsInNashorn() throws ScriptException {
         final Date date = new Date();
-        
+
         engine.put("date", date.getTime());
         engine.put("nanoTime", System.nanoTime());
-        
+
         Object eval = engine.eval("date === nanoTime");
         Boolean actual = Boolean.valueOf(eval.toString());
-        assertThat(actual, is(false));
+        assertThat(actual).isFalse();
     }
-    
-    
+
+
 }
